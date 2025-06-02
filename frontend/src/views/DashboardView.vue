@@ -299,15 +299,15 @@
             <div class="grid grid-cols-2 gap-3">
               <div class="space-y-2">
                 <label class="block text-sm font-medium text-gray-200">Status</label>
-                <select v-model="stationForm.status" required 
-                  class="w-full px-4 py-3 bg-white/5 border border-gray-600 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-300 hover:bg-white/10">
-                  <option value="">Select Status</option>
-                  <option value="Active">Active</option>
-                  <option value="Inactive">Inactive</option>
-                  <option value="Maintenance">Maintenance</option>
+                <select v-model="filters.status" @change="applyFilters"
+                  class="appearance-none w-full px-3 py-3 bg-white/5 text-white border border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-300 hover:bg-white/10">
+                  <option class="bg-gray-800 text-white" value="">All Status</option>
+                  <option class="bg-gray-800 text-white" value="Active">Active</option>
+                  <option class="bg-gray-800 text-white" value="Inactive">Inactive</option>
+                  <option class="bg-gray-800 text-white" value="Maintenance">Maintenance</option>
                 </select>
               </div>
-              
+
               <div class="space-y-2">
                 <label class="block text-sm font-medium text-gray-200">Power (kW)</label>
                 <input v-model.number="stationForm.powerOutput" type="number" placeholder="Power" required
@@ -318,16 +318,16 @@
             <!-- Connector Type -->
             <div class="space-y-2">
               <label class="block text-sm font-medium text-gray-200">Connector Type</label>
-              <select v-model="stationForm.connectorType" required
-                class="w-full px-4 py-3 bg-white/5 border border-gray-600 rounded-xl text-white focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-300 hover:bg-white/10">
-                <option value="">Select Connector</option>
-                <option value="Type 1">Type 1</option>
-                <option value="Type 2">Type 2</option>
-                <option value="CCS">CCS</option>
-                <option value="CHAdeMO">CHAdeMO</option>
-                <option value="Tesla Supercharger">Tesla Supercharger</option>
+              <select v-model="filters.connectorType" @change="applyFilters"
+                class="appearance-none w-full px-3 py-3 bg-white/5 text-white border border-gray-600 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent transition-all duration-300 hover:bg-white/10">
+                <option class="bg-gray-800 text-white" value="">All Connectors</option>
+                <option class="bg-gray-800 text-white" value="Type 1">Type 1</option>
+                <option class="bg-gray-800 text-white" value="Type 2">Type 2</option>
+                <option class="bg-gray-800 text-white" value="CCS">CCS</option>
+                <option class="bg-gray-800 text-white" value="CHAdeMO">CHAdeMO</option>
+                <option class="bg-gray-800 text-white" value="Tesla Supercharger">Tesla Supercharger</option>
               </select>
-            </div>
+            </div>         
 
             <!-- Action Buttons -->
             <div class="flex space-x-3 pt-4">
